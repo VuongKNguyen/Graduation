@@ -1,0 +1,82 @@
+# Icons Directory
+
+Store custom icons and SVG graphics here.
+
+## Current Structure
+
+```
+icons/
+├── README.md (this file)
+```
+
+## Adding Icons
+
+Place SVG or PNG icon files here:
+
+```
+icons/
+├── graduation-cap.svg
+├── music-icon.svg
+├── location-icon.svg
+└── calendar-icon.svg
+```
+
+## Emoji vs Custom Icons
+
+This project primarily uses **Unicode emoji** for simplicity:
+- 🎓 Graduation cap
+- 🎵 Music note
+- 📍 Location pin
+- 📅 Calendar
+- 💌 Envelope
+- ✨ Sparkles
+
+### Why Emoji?
+
+- ✅ No extra HTTP requests
+- ✅ Works on all devices
+- ✅ Built into all fonts
+- ✅ Smaller project size
+- ✅ Easy to maintain
+
+### Custom Icons
+
+If you want to use custom SVG icons:
+
+1. **Create or download SVG** icons
+2. **Place in this directory**
+3. **Reference in HTML:**
+   ```html
+   <img src="assets/icons/graduation-cap.svg" alt="Graduation">
+   ```
+
+## Recommended Icon Sets
+
+- **Heroicons:** https://heroicons.com/ (Free, beautiful)
+- **Feather Icons:** https://feathericons.com/ (Minimal)
+- **FontAwesome:** https://fontawesome.com/ (Comprehensive)
+- **Material Icons:** https://material.io/icons/ (Google)
+
+## SVG Best Practices
+
+```svg
+<!-- Always include viewBox for scalability -->
+<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+  <!-- SVG content -->
+</svg>
+```
+
+## Performance Notes
+
+- SVG icons are scalable and small
+- PNG icons are raster (fixed size)
+- Embed small SVGs inline in CSS (avoid HTTP requests)
+- Use `loading="lazy"` for image icons
+
+## File Size Guidelines
+
+- SVG icons: < 5KB each
+- PNG icons: < 20KB each
+- Total icons directory: < 500KB
+
+Start with emoji - add custom icons only if needed! 🎨

@@ -1,0 +1,70 @@
+# Music Files
+
+Store background music files in this directory.
+
+## Recommended Setup
+
+1. **File:** `graduation-piano.mp3`
+2. **Format:** MP3 (best browser compatibility)
+3. **Duration:** 2-5 minutes
+4. **File size:** 2-5MB maximum
+5. **Bitrate:** 128kbps (balances quality and file size)
+
+## How to Add Music
+
+1. Prepare your audio file as MP3
+2. Place in `/assets/music/` folder
+3. Update path in `/config/site-config.js`:
+   ```javascript
+   music: {
+     musicPath: "assets/music/your-file.mp3",
+   }
+   ```
+4. Test locally
+5. Deploy to GitHub Pages
+
+## Free Music Resources
+
+- **Pixabay Music:** https://pixabay.com/music/ (Royalty-free)
+- **FreePD:** https://freepd.com/ (Royalty-free)
+- **YouTube Audio Library:** Studio.youtube.com (Google account)
+- **Epidemic Sound:** https://www.epidemicsound.com/ (Subscription)
+
+## Audio Formats
+
+| Format | Compatibility | Size | Quality |
+|--------|---------------|------|---------|
+| MP3 | ✅ All browsers | Medium | Good |
+| WAV | ⚠️ Large files | Large | Lossless |
+| OGG | ⚠️ Limited | Medium | Good |
+| M4A | ⚠️ Safari only | Medium | Good |
+
+**Recommended:** MP3 format
+
+## Compression Tips
+
+```bash
+# Using FFmpeg to compress
+ffmpeg -i input.wav -b:a 128k output.mp3
+
+# Or use online converter
+# https://online-convert.com/
+```
+
+## Notes
+
+- Music won't autoplay (browser policy requires user interaction)
+- User must click the 🎵 button to start playback
+- Pauses automatically when tab is hidden
+- Volume set to 30% (user can adjust)
+- Loops continuously when playing
+
+## Testing
+
+1. Open page locally
+2. Click the music button (🎵)
+3. Verify audio plays
+4. Check volume level is reasonable
+5. Test in different browsers
+
+Enjoy! 🎵

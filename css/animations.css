@@ -1,0 +1,446 @@
+/**
+ * Animation Definitions
+ * CSS keyframe animations for all visual effects
+ */
+
+/* ==================== ENTRANCE ANIMATIONS ==================== */
+
+/**
+ * Envelope opening animation
+ */
+@keyframes envelopeOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/**
+ * Invitation card slide up
+ */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Fade in content
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Text reveal animation
+ */
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== FLOATING ANIMATIONS ==================== */
+
+/**
+ * Floating upward animation
+ */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/**
+ * Floating leaves animation
+ */
+@keyframes floatLeaves {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/**
+ * Gentle floating motion
+ */
+@keyframes gentleFloat {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-20px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(5px);
+  }
+}
+
+/**
+ * Glow pulse animation
+ */
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6), 0 0 60px rgba(16, 185, 129, 0.3);
+  }
+}
+
+/**
+ * Subtle scale pulse
+ */
+@keyframes scalePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* ==================== INTERACTIVE ANIMATIONS ==================== */
+
+/**
+ * Hover glow effect
+ */
+@keyframes hoverGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+  }
+}
+
+/**
+ * Button ripple effect
+ */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/**
+ * Bounce animation
+ */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+}
+
+/**
+ * Shake animation
+ */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+/**
+ * Pulse animation
+ */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/**
+ * Countdown flip animation
+ */
+@keyframes countFlip {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateX(180deg);
+    opacity: 1;
+  }
+}
+
+/* ==================== GRADIENT ANIMATIONS ==================== */
+
+/**
+ * Gradient shift animation
+ */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/**
+ * Background color shift
+ */
+@keyframes colorShift {
+  0% {
+    background-color: rgba(16, 185, 129, 0.1);
+  }
+  50% {
+    background-color: rgba(52, 211, 153, 0.15);
+  }
+  100% {
+    background-color: rgba(16, 185, 129, 0.1);
+  }
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+
+/**
+ * Apply animations through data attributes
+ */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.envelope-container {
+  animation: envelopeOpen 0.8s ease-out forwards;
+}
+
+.envelope-container.opening {
+  animation: envelopeOpen 0.8s ease-out;
+}
+
+.invitation-card {
+  animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.invitation-card.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.hero-section {
+  animation: fadeIn 0.6s ease-out 1s backwards;
+}
+
+.hero-section.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+[data-animate-text] {
+  animation: textReveal 0.6s ease-out backwards;
+}
+
+[data-animate-text].text-reveal {
+  animation: textReveal 0.6s ease-out forwards;
+}
+
+/* Particle styles */
+.particle {
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.8), rgba(16, 185, 129, 0.2));
+  border-radius: 50%;
+  will-change: transform;
+  top: 0;
+  left: 0;
+}
+
+.floating-leaf {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(52, 211, 153, 0.3));
+  opacity: 0.4;
+  pointer-events: none;
+  border-radius: 50%;
+  bottom: -20px;
+}
+
+.floating-leaf::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), transparent);
+  border-radius: 50%;
+}
+
+/* Interactive animations */
+.bounce {
+  animation: bounce 0.6s ease-out;
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.count-flip {
+  animation: countFlip 0.3s ease-in-out;
+}
+
+/* Floating effect */
+.floating {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* Glow effects */
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.scale-pulse {
+  animation: scalePulse 2s ease-in-out infinite;
+}
+
+/* Hover states */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  animation: hoverGlow 0.3s ease-out forwards;
+}
+
+/* Gradient animation */
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+.color-shift {
+  animation: colorShift 4s ease-in-out infinite;
+}
+
+/* ==================== RESPONSIVE ANIMATIONS ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes textReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .particle {
+    display: none;
+  }
+}

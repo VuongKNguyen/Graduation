@@ -1,0 +1,30 @@
+# Default Avatar Placeholder
+
+This is the fallback image that displays when the personal graduation photo is not found.
+
+## Replacing This Image
+
+To use your own default avatar:
+
+1. **Create a new image** (500x500px recommended)
+2. **Export as PNG** with transparent background
+3. **Replace this file** while keeping the filename `default-avatar.png`
+
+## Current Image
+
+This file contains a simple gradient placeholder.
+
+### Requirements
+
+- **Format:** PNG (with alpha transparency)
+- **Dimensions:** 500x500px (or larger)
+- **File size:** < 100KB
+- **Aspect ratio:** 1:1 (square)
+- **Background:** Can be transparent or solid color
+
+## Tips
+
+- Use a simple geometric shape or avatar
+- Keep colors consistent with your theme (green pastel recommended)
+- Avoid detailed images (scaling issues on small screens)
+- Test on different devices before deploying
