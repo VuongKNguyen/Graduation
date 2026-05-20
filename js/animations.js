@@ -1,11 +1,15 @@
 /**
- * Animation Controls
- * Manages various animation sequences and effects
+ * Animation Controls - PREMIUM CINEMATIC
+ * Manages various animation sequences and effects with scroll reveals
  */
 
 class AnimationController {
   constructor() {
     this.envelopeOpened = false;
+    this.observerOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px",
+    };
   }
 
   /**
@@ -13,13 +17,41 @@ class AnimationController {
    */
   initialize() {
     if (!configLoader.isFeatureEnabled("animationsEnabled")) {
-      // Skip animations, show content immediately
       this.skipToContent();
       return;
     }
 
     // Delay envelope animation slightly for smooth page load
     setTimeout(() => this.startEnvelopeAnimation(), 300);
+
+    // Initialize scroll reveal animations
+    this.initScrollReveal();
+  }
+
+  /**
+   * Initialize Intersection Observer for scroll reveals
+   */
+  initScrollReveal() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !entry.target.classList.contains("revealed")) {
+          entry.target.classList.add("revealed");
+
+          // Stagger animation for child elements
+          const children = entry.target.querySelectorAll("[data-animate-text]");
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add("text-reveal");
+            }, index * 80);
+          });
+        }
+      });
+    }, this.observerOptions);
+
+    // Observe all reveal elements
+    document.querySelectorAll("[data-reveal]").forEach((element) => {
+      observer.observe(element);
+    });
   }
 
   /**
@@ -29,10 +61,8 @@ class AnimationController {
     const envelope = document.querySelector(".envelope-container");
     if (!envelope) return;
 
-    // Add animation class
     envelope.classList.add("opening");
 
-    // Trigger card slide up
     setTimeout(() => {
       this.slideUpInvitationCard();
     }, 800);
@@ -48,7 +78,6 @@ class AnimationController {
     card.classList.add("slide-up");
     this.envelopeOpened = true;
 
-    // Fade in hero content
     setTimeout(() => {
       this.fadeInHeroContent();
     }, 600);
@@ -63,7 +92,6 @@ class AnimationController {
 
     hero.classList.add("fade-in");
 
-    // Animate text elements
     const textElements = hero.querySelectorAll("[data-animate-text]");
     textElements.forEach((element, index) => {
       setTimeout(() => {
@@ -119,11 +147,12 @@ class AnimationController {
    * Animate countdown timer
    */
   animateCountdownChange(element, newValue) {
+    if (!element) return;
     element.classList.add("count-flip");
     setTimeout(() => {
       element.textContent = newValue;
       element.classList.remove("count-flip");
-    }, 300);
+    }, 150);
   }
 
   /**
@@ -173,13 +202,27 @@ class AnimationController {
       { once: true }
     );
   }
+
+  /**
+   * Scale animation on element
+   */
+  scale(element, targetScale = 1.05, duration = 300) {
+    if (!element) return;
+
+    const originalScale = element.style.transform || "scale(1)";
+    element.style.transition = `transform ${duration}ms var(--ease-in-out-premium)`;
+    element.style.transform = `scale(${targetScale})`;
+
+    setTimeout(() => {
+      element.style.transform = originalScale;
+    }, duration);
+  }
 }
 
 // Initialize animation controller
 const animationController = new AnimationController();
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Wait for config to load
   configLoader.initialize().then(() => {
     animationController.initialize();
 

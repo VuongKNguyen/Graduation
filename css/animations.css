@@ -1,5 +1,5 @@
 /**
- * Animation Definitions
+ * Animation Definitions - PREMIUM CINEMATICS
  * CSS keyframe animations for all visual effects
  */
 
@@ -49,20 +49,87 @@
 }
 
 /**
- * Text reveal animation
+ * Text reveal animation - premium
  */
 @keyframes textReveal {
   0% {
     opacity: 0;
     transform: translateY(20px);
+    filter: blur(8px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-/* ==================== FLOATING ANIMATIONS ==================== */
+/**
+ * Blur-to-clear reveal
+ */
+@keyframes blurReveals {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* ==================== FLOATING ANIMATIONS - CINEMATIC ==================== */
+
+/**
+ * Slow floating motion for background elements
+ */
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-30px) translateX(0px);
+  }
+  75% {
+    transform: translateY(-15px) translateX(-10px);
+  }
+}
+
+/**
+ * Slow floating motion - reverse
+ */
+@keyframes floatSlowReverse {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(15px) translateX(-10px);
+  }
+  50% {
+    transform: translateY(30px) translateX(0px);
+  }
+  75% {
+    transform: translateY(15px) translateX(10px);
+  }
+}
+
+/**
+ * Image floating - subtle cinematic
+ */
+@keyframes floatImage {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
 
 /**
  * Floating upward animation
@@ -121,7 +188,7 @@
 }
 
 /**
- * Glow pulse animation
+ * Glow pulse animation - enhanced
  */
 @keyframes glowPulse {
   0%,
@@ -129,12 +196,12 @@
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.1);
   }
   50% {
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6), 0 0 60px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6), 0 0 80px rgba(16, 185, 129, 0.2);
   }
 }
 
 /**
- * Subtle scale pulse
+ * Subtle scale pulse - premium
  */
 @keyframes scalePulse {
   0%,
@@ -143,6 +210,47 @@
   }
   50% {
     transform: scale(1.02);
+  }
+}
+
+/**
+ * Glow text animation
+ */
+@keyframes glowText {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  }
+}
+
+/* ==================== TERMINAL ANIMATIONS ==================== */
+
+/**
+ * Blinking cursor
+ */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/**
+ * Typing animation
+ */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 
@@ -277,6 +385,36 @@
   }
   100% {
     background-color: rgba(16, 185, 129, 0.1);
+  }
+}
+
+/* ==================== SCROLL REVEAL ANIMATIONS ==================== */
+
+/**
+ * Fade up reveal
+ */
+@keyframes fadeUpReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Staggered fade up
+ */
+@keyframes staggerFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
