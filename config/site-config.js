@@ -14,7 +14,7 @@ const SITE_CONFIG = {
     // Graduation Details
     graduation: {
         date: "2026-05-23", // ISO format: YYYY-MM-DD
-        time: "10:00", // 24-hour format: HH:MM
+        time: "16:30", // 24-hour format: HH:MM
         address: "Km10, Nguyen Trai Street, Ha Dong District, Hanoi.",
         schoolName: "Posts and Telecommunications Institute of Technology",
         schoolAbbr: "PTIT",
